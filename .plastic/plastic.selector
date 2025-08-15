@@ -1,0 +1,4 @@
+repository "2025tgc_game_group2/2025tgc_game_group2@15669568460505@cloud"
+  path "/"
+    br "/main"
+    co "/main"
