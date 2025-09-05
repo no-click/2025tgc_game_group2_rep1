@@ -1,0 +1,70 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class EnemyBossScript : MonoBehaviour
+{
+    public GameObject OniBullet;
+    public float fireRate = 1.0f;
+    public float speed = 5.0f;
+    public float distance = 2.0f;
+    public string gameOverSceneName = "GameOver";
+    public int hp = 5;
+    private float nextFireTime;
+    private float startAngle = 0.0f;
+
+
+    void Awake()
+    {
+        OniBullet = Resources.Load<GameObject>("OniBullet");
+    }
+
+    void Start()
+    {
+        nextFireTime = Time.time;
+    }
+
+    void Update()
+    {
+        if (transform.position.y >= 2)
+        {
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
+        }
+        else if (Time.time >= nextFireTime)
+        {
+            Shoot();
+            nextFireTime = Time.time + fireRate;
+        }
+    }
+
+    void Shoot()
+    {
+        Vector3 enemyPosition = transform.position;
+        float angleOffset = 10.0f;
+        startAngle += angleOffset;
+        for (int i = 0; i < 8; i++)
+        {
+            float angle = startAngle + i * 45.0f;
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            Vector3 direction = rotation * Vector3.up;
+            Vector3 spawnPosition = enemyPosition + direction * distance;
+            Instantiate(OniBullet, spawnPosition, rotation);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            hp--;
+            if(hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(gameOverSceneName);
+        }
+    }
+
+}

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Vector2 moveInput;
     public float moveSpeed = 5f;
+    public GameObject bullet;
     private Rigidbody2D rb;
 
     void Awake()
@@ -26,4 +27,13 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = moveInput * moveSpeed;
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+        }
+    }
+
 }

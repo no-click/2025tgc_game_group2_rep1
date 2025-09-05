@@ -7,10 +7,14 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * speed * Time.deltaTime);
+    }
 
-        if (transform.position.y <= -5.5f)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") || other.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }
     }
+
 }
