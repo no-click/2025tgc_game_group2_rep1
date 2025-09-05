@@ -1136,7 +1136,7 @@ MonoBehaviour:
   BossEnemy: {fileID: 8904784066148085138, guid: 5becc880554dbc44a8a662fa6b9d70b9, type: 3}
   level: 1
   spawnCooldown: 5
-  spawnTime: 0
+  spawnTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
