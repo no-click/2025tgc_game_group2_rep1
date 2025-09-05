@@ -265,7 +265,6 @@ GameObject:
   - component: {fileID: 97517866}
   - component: {fileID: 97517865}
   - component: {fileID: 97517864}
-  - component: {fileID: 97517863}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -273,21 +272,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &97517863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97517862}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd84e11050afe5b469a3a64b4c47b2fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObj: {fileID: 1132588397}
-  PosX: 5
-  PosY: 0
 --- !u!114 &97517864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +891,7 @@ GameObject:
   - component: {fileID: 1132588402}
   - component: {fileID: 1132588401}
   - component: {fileID: 1132588400}
+  - component: {fileID: 1132588405}
   - component: {fileID: 1132588399}
   - component: {fileID: 1132588398}
   - component: {fileID: 1132588404}
@@ -1132,11 +1117,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6317c43a30368fb4d8efb4f5fc610588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 3300464548690771773, guid: e8b01814f0e63db489916348539b36b4, type: 3}
+  Enemy01: {fileID: 3843401086222829870, guid: 18c03f74aeab7ce4e9936d7c7fe754bc, type: 3}
+  Enemy02: {fileID: 3300464548690771773, guid: e8b01814f0e63db489916348539b36b4, type: 3}
   BossEnemy: {fileID: 8904784066148085138, guid: 5becc880554dbc44a8a662fa6b9d70b9, type: 3}
   level: 1
   spawnCooldown: 5
-  spawnTime: 3
+  firstTime: 1
+  spawnTime: 1
+--- !u!61 &1132588405
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132588397}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 0.512, y: 0.512}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.8, y: 0.8}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

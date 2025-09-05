@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript02 : MonoBehaviour
 {
     // ƒvƒŒƒCƒ„[‚ÌTransform
     public Transform playerTransform;
