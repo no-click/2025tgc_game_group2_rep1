@@ -36,7 +36,7 @@ public class EnemyScript01 : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(gameOverSceneName);
+            //SceneManager.LoadScene(gameOverSceneName);
         }
     }
 

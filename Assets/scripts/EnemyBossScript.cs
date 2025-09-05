@@ -10,7 +10,7 @@ public class EnemyBossScript : MonoBehaviour
     public string gameOverSceneName = "GameOver";
     public int hp = 5;
     private float nextFireTime;
-    private float startAngle = 0.0f;
+    private float startAngle = 20.0f;
 
 
     void Awake()
@@ -53,7 +53,7 @@ public class EnemyBossScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet") && transform.position.y <= 2)
         {
             hp--;
             if(hp <= 0)
@@ -63,7 +63,7 @@ public class EnemyBossScript : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(gameOverSceneName);
+            //SceneManager.LoadScene(gameOverSceneName);
         }
     }
 

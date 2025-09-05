@@ -42,7 +42,7 @@ public class EnemyScript02 : MonoBehaviour
             Destroy(gameObject);
         }else if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(gameOverSceneName);
+            //SceneManager.LoadScene(gameOverSceneName);
         }
     }
 

@@ -31,8 +31,12 @@ public class OniBullet : MonoBehaviour
     {
         Vector3 currentDirection = GetComponent<Rigidbody2D>().linearVelocity;
         Vector3 rotatedDirection = Quaternion.Euler(0, 0, rotationSpeed * Time.deltaTime) * currentDirection;
-
         GetComponent<Rigidbody2D>().linearVelocity = rotatedDirection.normalized * moveSpeed;
+        int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (enemyCount == 0) 
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
