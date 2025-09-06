@@ -7,6 +7,12 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * speed * Time.deltaTime);
+        int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (enemyCount == 0)
+        {
+            Destroy(gameObject);
+
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

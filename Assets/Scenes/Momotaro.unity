@@ -964,6 +964,7 @@ MonoBehaviour:
   bullet: {fileID: 324784509737126622, guid: 7ce96fc7a6baaf34592abdcc3f1e6d67, type: 3}
   gameOverSceneName: GameOver
   hp: 2
+  fireRate: 0.3
 --- !u!50 &1132588400
 Rigidbody2D:
   serializedVersion: 5

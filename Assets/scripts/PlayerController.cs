@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     public int hp = 0;
+    public float fireRate = 1.0f;
+    private float nextFireTime;
 
     void Awake()
     {
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0;
 
         rb.freezeRotation = true;
+
+        nextFireTime = Time.time;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -34,9 +38,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
+        }*/
+        int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (Time.time >= nextFireTime && enemyCount != 0)
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+            nextFireTime = Time.time + fireRate;
+
         }
     }
 
