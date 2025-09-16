@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5366305871169118774}
   - component: {fileID: 2186656505869328755}
   - component: {fileID: 4269548336214777755}
-  - component: {fileID: 7023184313880580424}
+  - component: {fileID: 3134458982378744748}
   m_Layer: 0
   m_Name: Minotaur
   m_TagString: Enemy
@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4918496319743593208, guid: 238c80dafe3ca8043834f38630903e40, type: 3}
+  m_Sprite: {fileID: -4918496319743593208, guid: 3cd9d30921df1a64386c50bbc91e67a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.23, y: 4.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -129,7 +129,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4.23, y: 4.35}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 4.23, y: 4.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7023184313880580424
+--- !u!114 &3134458982378744748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,10 +172,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2378907355542762679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72fe845f0039f2441ba01e9c2d421746, type: 3}
+  m_Script: {fileID: 11500000, guid: 36000b39cde76e545bfe19333f5885db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 20
   Ax: {fileID: 0}
   Ax1: {fileID: 0}
   stopDistance: 5

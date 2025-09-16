@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1539608669995671347}
   - component: {fileID: 4425471977146636102}
-  - component: {fileID: 1345724313879032259}
   - component: {fileID: 6043390734521966746}
+  - component: {fileID: 8419677056657619392}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Enemy
@@ -78,35 +78,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1075866189984305705, guid: c9460efab49411641aebd2871e99441f, type: 3}
+  m_Sprite: {fileID: -1075866189984305705, guid: ae08cf41c7e6bf04b81a2cbb7fe98672, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.024, y: 0.452}
+  m_Size: {x: 5.12, y: 2.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1345724313879032259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4853847377420237951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d567ee2e7781c94eb93bc0b9869e928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  height: -0.04
-  swaySpeed: 3
-  bullet: {fileID: 0}
-  fireRate: 1
-  hp: 50
 --- !u!61 &6043390734521966746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,10 +128,28 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.024, y: 0.452}
-    newSize: {x: 1.024, y: 0.452}
+    newSize: {x: 5.12, y: 2.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1.024, y: 0.452}
   m_EdgeRadius: 0
+--- !u!114 &8419677056657619392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4853847377420237951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce8289d870738042a3ae2da9223e4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  height: -0.04
+  swaySpeed: 3
+  bullet: {fileID: 0}
+  fireRate: 1
+  hp: 50

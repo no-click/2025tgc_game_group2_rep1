@@ -28,8 +28,8 @@ public class Minotaur : MonoBehaviour
         {
             playerTransform = playerObject.transform;
         }
-        Ax = Resources.Load<GameObject>("Ax");
-        Ax1 = Resources.Load<GameObject>("Ax1");
+        Ax = Resources.Load<GameObject>("Stage2/Ax");
+        Ax1 = Resources.Load<GameObject>("Stage2/Ax1");
         maxHP = hp;
         nextFireTime = Time.time;
     }

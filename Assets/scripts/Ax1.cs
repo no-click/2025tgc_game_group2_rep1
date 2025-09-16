@@ -6,7 +6,7 @@ public class Ax1 : MonoBehaviour
 
     void Awake()
     {
-        Bullet = Resources.Load<GameObject>("EnemyBulletEx");
+        Bullet = Resources.Load<GameObject>("Stage2/EnemyBulletEx");
         Shoot8Directions();
         Destroy(gameObject);
     }

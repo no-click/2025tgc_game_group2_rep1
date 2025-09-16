@@ -20,7 +20,7 @@ public class Ax : MonoBehaviour
         {
             player = playerObject.transform;
         }
-        Bullet = Resources.Load<GameObject>("EnemyBullet3Ex");
+        Bullet = Resources.Load<GameObject>("Stage2/EnemyBullet3Ex");
     }
 
     public void SetInitialAngle(float angle)

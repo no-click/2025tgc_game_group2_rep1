@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7436903398872993193}
   - component: {fileID: 8669722169869125063}
   - component: {fileID: 312112247219427660}
-  - component: {fileID: -4785027280851727492}
+  - component: {fileID: 6245263878669243668}
   m_Layer: 0
   m_Name: Ax1
   m_TagString: Untagged
@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4112554076555076851, guid: 6b13122461c4d57488285590dfdc28ab, type: 3}
+  m_Sprite: {fileID: 4112554076555076851, guid: 5eb4ffe95029c9b46b453aa6ef7be7d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4785027280851727492
+--- !u!114 &6245263878669243668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,6 +162,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 576175562044134751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41fcc47b1ddf154ea8c5979ba7bece9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fc6083d132d98a4c9f7d8ef070a4e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

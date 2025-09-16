@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4286903404523383226}
   - component: {fileID: 5028823402141418487}
   - component: {fileID: 4676038316823431948}
-  - component: {fileID: 351934900674537917}
+  - component: {fileID: 5171146317323668954}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4386738580014523070, guid: dd292e9922687024ea6d91bedce67bc4, type: 3}
+  m_Sprite: {fileID: 4386738580014523070, guid: 0585bef67fa2709438a3595bd9700fd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &351934900674537917
+--- !u!114 &5171146317323668954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 406965955565314641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1eb1ce9156c4b443b1313b309f5864e, type: 3}
+  m_Script: {fileID: 11500000, guid: 727370d651a8eda469bdfe4510a34879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10

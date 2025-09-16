@@ -28,7 +28,7 @@ public class UpDownMover : MonoBehaviour
 
         // オブジェクトの初期位置を記録
         initialPosition = transform.position;
-        bullet = Resources.Load<GameObject>("EnemyBullet");
+        bullet = Resources.Load<GameObject>("Stage2/EnemyBullet");
     }
 
     void Start()
