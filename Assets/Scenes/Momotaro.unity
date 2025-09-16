@@ -248,7 +248,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -473,7 +473,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -891,7 +891,6 @@ GameObject:
   - component: {fileID: 1132588402}
   - component: {fileID: 1132588401}
   - component: {fileID: 1132588400}
-  - component: {fileID: 1132588405}
   - component: {fileID: 1132588399}
   - component: {fileID: 1132588398}
   - component: {fileID: 1132588404}
@@ -961,7 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  bullet: {fileID: 324784509737126622, guid: 7ce96fc7a6baaf34592abdcc3f1e6d67, type: 3}
+  bullet: {fileID: 324784509737126622, guid: 25aa8bafb9fed9c4aba514e6c94805a5, type: 3}
   gameOverSceneName: GameOver
   hp: 2
   fireRate: 0.3
@@ -1030,13 +1029,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.8}
+    oldSize: {x: 0.916, y: 0.916}
     newSize: {x: 0.512, y: 0.512}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
 --- !u!212 &1132588402
 SpriteRenderer:
@@ -1061,7 +1060,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: de1bd83ebde53c84abb91a5cbc7d37d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1082,7 +1081,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3061893861418350851, guid: f0ee755c2beab0644b9a1a37bc47e141, type: 3}
+  m_Sprite: {fileID: 4465609935907473115, guid: 394b545fc14a2ba4480a623276601593, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1120,59 +1119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6317c43a30368fb4d8efb4f5fc610588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy01: {fileID: 3843401086222829870, guid: 18c03f74aeab7ce4e9936d7c7fe754bc, type: 3}
-  Enemy02: {fileID: 3300464548690771773, guid: e8b01814f0e63db489916348539b36b4, type: 3}
-  BossEnemy: {fileID: 8904784066148085138, guid: 5becc880554dbc44a8a662fa6b9d70b9, type: 3}
+  Enemy01: {fileID: 3843401086222829870, guid: d411b0a3ef444b14d81cde50bafc62fa, type: 3}
+  Enemy02: {fileID: 3300464548690771773, guid: 23fe151c0b88c7d48bc05de84ba73703, type: 3}
+  BossEnemy: {fileID: 8904784066148085138, guid: e8cd3eb7418d0b04db5237f20ec52617, type: 3}
   level: 1
   spawnCooldown: 5
   firstTime: 1
   spawnTime: 1
---- !u!61 &1132588405
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132588397}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.8}
-    newSize: {x: 0.512, y: 0.512}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 0.8}
-  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

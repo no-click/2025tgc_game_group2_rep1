@@ -15,7 +15,7 @@ public class EnemyBossScript : MonoBehaviour
 
     void Awake()
     {
-        OniBullet = Resources.Load<GameObject>("OniBullet");
+        OniBullet = Resources.Load<GameObject>("Stage1/OniBullet");
     }
 
     void Start()
