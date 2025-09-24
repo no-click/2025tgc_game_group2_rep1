@@ -7,20 +7,20 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Enemy02;
     public GameObject BossEnemy;
 
-    public int level = 0;
-    private int y; 
+    private int y = 5; 
     private int x;
 
 
     // 敵がスポーンするまでのクールタイム
     public float spawnCooldown = 5.0f;
-    public int firstTime = 1;
-    public int spawnTime = 1;
+    [SerializeField, Header("第1ウェーブの回数")]
+    public int firstWave = 1;
+    [SerializeField, Header("第2ウェーブの回数")]
+    public int secondWave = 1;
     private float nextSpawnTime = 0f;
 
     void Start()
     {
-        y = 5 - level;
     }
 
     void Update()
@@ -31,19 +31,19 @@ public class EnemySpawner : MonoBehaviour
         // 敵が存在せず、かつクールタイムが経過したら
         if (enemyCount == 0 && Time.time >= nextSpawnTime)
         {
-            if (firstTime > 0)
+            if (firstWave > 0)
             {
                 Instantiate(Enemy01, new Vector3(6, 4, 0), Quaternion.identity);
                 Instantiate(Enemy01, new Vector3(-6, 3, 0), Quaternion.identity);
-                firstTime--;
-            }else if (spawnTime > 0)
+                firstWave--;
+            }else if (secondWave > 0)
             {
                 SpawnEnemy();
-                spawnTime--;
-            }else if(spawnTime == 0)
+                secondWave--;
+            }else if(secondWave == 0)
             {
                 Instantiate(BossEnemy, new Vector3(0, 10, 0), Quaternion.identity);
-                spawnTime--;
+                secondWave--;
             }
         }
     }

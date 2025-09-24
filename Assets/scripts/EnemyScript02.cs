@@ -1,15 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemyScript02 : MonoBehaviour
 {
     // プレイヤーのTransform
     public Transform playerTransform;
-
-    // 動きの速さ
     public float speed = 5.0f;
-
-    public string gameOverSceneName = "GameOver";
+    public int hp = 1;
 
 
     void Start()
@@ -30,19 +26,17 @@ public class EnemyScript02 : MonoBehaviour
     {
         // 敵の現在位置からプレイヤーの位置へ、指定された速度で移動
         transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-
-        // プレイヤーの方を向く（任意）
-        //transform.LookAt(playerTransform);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
-        }else if (other.CompareTag("Player"))
-        {
-            //SceneManager.LoadScene(gameOverSceneName);
+            hp--;
+            if (hp <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

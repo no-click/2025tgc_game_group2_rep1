@@ -106,6 +106,11 @@ public class Minotaur : MonoBehaviour
             hp--;
             if (hp <= 0)
             {
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
+                foreach (GameObject obj in objects)
+                {
+                    Destroy(obj);
+                }
                 Destroy(gameObject);
             }
         }

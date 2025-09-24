@@ -58,12 +58,13 @@ public class EnemyBossScript : MonoBehaviour
             hp--;
             if(hp <= 0)
             {
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("OniBullet");
+                foreach (GameObject obj in objects)
+                {
+                    Destroy(obj);
+                }
                 Destroy(gameObject);
             }
-        }
-        else if (other.CompareTag("Player"))
-        {
-            //SceneManager.LoadScene(gameOverSceneName);
         }
     }
 

@@ -179,5 +179,5 @@ MonoBehaviour:
   Ax: {fileID: 0}
   Ax1: {fileID: 0}
   stopDistance: 5
-  hp: 500
+  hp: 1000
   fireRate: 3

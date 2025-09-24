@@ -2,48 +2,124 @@ using UnityEngine;
 
 public class Witch : MonoBehaviour
 {
-    public int maxHP = 100;
-    private int hp;
+    public float speed = 20f;
+    public GameObject Ax;
+    public GameObject bullet;
+    private Rigidbody2D rb;
+    public int hp = 300;
+    private GameObject playerObject;
+    private Transform playerTransform;
+    private float maxHP;
+    public float fireRate = 3.0f;
+    private float specialTimer = 0;
+    private float nextFireTime;
+    private float specialFireRate = 1.5f;
+    private float specialNextFireTime;
+    private float specialAngle = 270.0f;
+    private bool isMovingIntoPosition = true;
+    private bool canSpecialAttack = true;
 
-    [Header("バリア設定")]
-    public Barrier barrier; // 魔女のバリア
-
-    void Start()
+    void Awake()
     {
-        hp = maxHP;
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        rb.freezeRotation = true;
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            playerTransform = playerObject.transform;
+        }
+        Ax = Resources.Load<GameObject>("Stage2/Ax");
+        bullet = Resources.Load<GameObject>("Stage2/EnemyBullet");
+        maxHP = hp;
+        nextFireTime = Time.time;
+        specialNextFireTime = Time.time;
     }
 
-    /// <summary>
-    /// ダメージを受ける処理
-    /// </summary>
-    public void TakeDamage(int damage, Vector2 attackDir)
+    void Update()
     {
-        // バリアが有効なら弱点判定
-        if (barrier != null && !barrier.IsAttackValid(attackDir))
+        //  登場時
+        if (isMovingIntoPosition)
         {
-            Debug.Log("魔女のバリアに弾かれた！");
+            if (transform.position.y > 3)
+            {
+                transform.Translate(Vector3.down * speed * Time.deltaTime);
+            }
+            else
+            {
+                isMovingIntoPosition = false;
+            }
             return;
         }
-
-        hp -= damage;
-        Debug.Log("魔女のHP: " + hp);
-
-       
+        GameObject otherBullet = GameObject.FindGameObjectWithTag("EnemyBullet");
+        if (Time.time >= specialNextFireTime && hp < maxHP / 2 && canSpecialAttack)
+        {
+            SpecialShoot();
+            specialNextFireTime = Time.time + specialFireRate;
+        }
+        else if (otherBullet == null && Time.time >= nextFireTime)
+        {
+            Shoot();
+            nextFireTime = Time.time + fireRate;
+        }
     }
+
+    void Shoot()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            float ran = Random.Range(180.0f, 360f);
+            GameObject newAx = Instantiate(Ax, transform.position, Quaternion.identity);
+            Ax AxScript = newAx.GetComponent<Ax>();
+            if (AxScript != null)
+            {
+                AxScript.SetInitialAngle(ran);
+            }
+        }
+    }
+
+    void SpecialShoot()
+    {
+        if (specialFireRate == 1.5) {
+            nextFireTime = Time.time + 20.0f;
+            specialTimer = Time.time;
+
+        }
+        int bulletCount = (int) ((Time.time - specialTimer) * 0.7); // 1回の発射で何方向に撃つか
+        if( bulletCount > 12) bulletCount = 12;
+        float angleStep = 360f / bulletCount;
+        for (int i = 0; i < bulletCount; i++)
+        {
+            float angle = i * angleStep + specialAngle; // 回転を加える
+            GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+            EnemyBullet3 bulletScript = newBullet.GetComponent<EnemyBullet3>();
+            if (bulletScript != null)
+            {
+                bulletScript.SetAngle(angle);
+            }
+        }
+        specialAngle += 13.0f;
+        // 発射間隔をだんだん短くする
+        specialFireRate *= 0.9f;
+        if (Time.time >= nextFireTime) canSpecialAttack = false;
+    }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullet") && transform.position.y <= 2)
+        if (other.CompareTag("Bullet"))
         {
+            if (hp < maxHP / 2 && canSpecialAttack) return;
             hp--;
             if (hp <= 0)
             {
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
+                foreach (GameObject obj in objects)
+                {
+                    Destroy(obj);
+                }
                 Destroy(gameObject);
             }
-        }
-        else if (other.CompareTag("Player"))
-        {
-            //SceneManager.LoadScene(gameOverSceneName);
         }
     }
 }

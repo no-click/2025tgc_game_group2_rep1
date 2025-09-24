@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Bullet
   - OniBullet
+  - EnemyBullet
+  - Barrier
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,8 @@ public class Ax1 : MonoBehaviour
 
     void Awake()
     {
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemy.Length == 0) Destroy(gameObject);
         Bullet = Resources.Load<GameObject>("Stage2/EnemyBulletEx");
         Shoot8Directions();
         Destroy(gameObject);

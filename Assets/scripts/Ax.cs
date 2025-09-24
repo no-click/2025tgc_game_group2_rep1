@@ -32,6 +32,8 @@ public class Ax : MonoBehaviour
 
     void Update()
     {
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        if(enemy.Length == 0) Destroy(gameObject);
         if (Time.time >= nextFireTime)
         {
             Shoot();
