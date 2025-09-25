@@ -20,6 +20,8 @@ public class Player3 : MonoBehaviour
     private float damageTime;
     [SerializeField, Header("点滅時間")]
     private float damageCycle;
+    [SerializeField, Header("発射SE")]
+    public AudioClip shotSE;
     //点滅処理
     private SpriteRenderer spriteRenderer;
     private float damageTimeCount;
@@ -28,6 +30,7 @@ public class Player3 : MonoBehaviour
     public float maxPowDistance = 8f; // 弾が3発になる距離
     //プレイヤーから少し離れた位置に弾を生成するための変数
     public float bulletSpawnOffset = 1.0f; // 弾の発射位置のオフセット
+
 
     void Awake()
     {
@@ -69,6 +72,10 @@ public class Player3 : MonoBehaviour
                 int bulletCount = GetBulletCount(distance);
                 Shoot(closestEnemy, bulletCount);
                 nextFireTime = Time.time + fireRate;
+                if (SoundPlayer.instance != null && shotSE != null)
+                {
+                    SoundPlayer.instance.PlaySE(shotSE);
+                }
             }
         }
         GameObject[] barriers = GameObject.FindGameObjectsWithTag("Barrier");
@@ -181,6 +188,7 @@ public class Player3 : MonoBehaviour
             {
                 hp--;
                 dDamage = true;
+                CameraShaker.instance.Shake(0.3f, 0.1f);
                 if (hp <= 0)
                 {
                     SceneManager.LoadScene(gameOverSceneName);
@@ -197,11 +205,6 @@ public class Player3 : MonoBehaviour
     public bool IsDamage()
     {
         return dDamage;
-    }
-
-    public bool IsBarrier()
-    {
-        return isBarrier;
     }
 
 }

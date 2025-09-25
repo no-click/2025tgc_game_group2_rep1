@@ -153,3 +153,4 @@ MonoBehaviour:
   bullet: {fileID: 0}
   fireRate: 1
   hp: 50
+  dieSE: {fileID: 8300000, guid: f56758c3d9d2add4fa4b7e3ae33d2ece, type: 3}
