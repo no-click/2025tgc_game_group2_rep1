@@ -13,6 +13,7 @@ public class UpDownMover : MonoBehaviour
     private Transform playerTransform;
     private float nextFireRate;
     public int hp = 50;
+    public AudioClip dieSE;
 
     // オブジェクトの初期位置を保存
     private Vector3 initialPosition;
@@ -84,6 +85,10 @@ public class UpDownMover : MonoBehaviour
             hp--;
             if (hp <= 0)
             {
+                if (SoundPlayer.instance != null && dieSE != null)
+                {
+                    SoundPlayer.instance.PlaySE(dieSE);
+                }
                 Destroy(gameObject);
             }
         }

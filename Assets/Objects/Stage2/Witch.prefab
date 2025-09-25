@@ -278,6 +278,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   hp: 500
   fireRate: 3
+  dieSE: {fileID: 8300000, guid: 0e748c6cacaebfe4991ab421c26cefbd, type: 3}
 --- !u!50 &7949566802771583076
 Rigidbody2D:
   serializedVersion: 5
