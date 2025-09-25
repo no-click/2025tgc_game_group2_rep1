@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class UpDownMover : MonoBehaviour
 {
-    // 追跡と揺れの速度
+    [SerializeField, Header("追跡のスピード")]
     public float speed = 5.0f;
-    // 上下に揺れる範囲の高さ
+    [SerializeField, Header("上下に揺れる範囲の高さ")]
     public float height = 0.2f;
+    [SerializeField, Header("上下に揺れる速さ")]
     public float swaySpeed = 3.0f;
     public GameObject bullet;
+    [SerializeField, Header("攻撃頻度")]
     public float fireRate = 1.0f;
     private GameObject playerObject;
     private Transform playerTransform;
     private float nextFireRate;
+    [SerializeField, Header("最大体力")]
     public int hp = 50;
+    [SerializeField, Header("死亡時のSE")]
     public AudioClip dieSE;
 
     // オブジェクトの初期位置を保存

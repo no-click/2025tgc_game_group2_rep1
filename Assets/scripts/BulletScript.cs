@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    [SerializeField, Header("’e‘¬")]
     public float speed = 10f;
 
     void Update()

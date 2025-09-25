@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyBullet3Ex : MonoBehaviour
 {
+    [SerializeField, Header("’e‘¬")]
     public float speed = 10f;
     private Rigidbody2D rb;
     private float timer = 0f;

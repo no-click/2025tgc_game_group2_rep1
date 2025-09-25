@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    // 移動するスピード
+    [SerializeField, Header("移動するスピード")]
     public float scrollSpeed = 2f;
-
-    // 背景がリセットされるY座標
+    [SerializeField, Header("背景がリセットされるY座標")]
     public float resetHeight = -10f;
+    [SerializeField, Header("リセット後のY座標")]
 
-    // リセット後のY座標
     public float newYPosition = 10f;
 
     void Update()

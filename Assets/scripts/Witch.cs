@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class Witch : MonoBehaviour
 {
+    [SerializeField, Header("登場時のスピード")]
     public float speed = 20f;
+    private Player3 player;
+    [SerializeField, Header("発射する弾")]
     public GameObject Ax;
+    [SerializeField, Header("発射する弾")]
     public GameObject bullet;
     private Rigidbody2D rb;
+    [SerializeField, Header("最大体力")]
     public int hp = 300;
     private GameObject playerObject;
     private Transform playerTransform;
     private float maxHP;
+    [SerializeField, Header("攻撃頻度")]
     public float fireRate = 3.0f;
     private float specialTimer = 0;
     private float nextFireTime;
@@ -18,6 +24,7 @@ public class Witch : MonoBehaviour
     private float specialAngle = 270.0f;
     private bool isMovingIntoPosition = true;
     private bool canSpecialAttack = true;
+    [SerializeField, Header("死亡時のSE")]
     public AudioClip dieSE;
 
 
@@ -27,6 +34,7 @@ public class Witch : MonoBehaviour
         rb.gravityScale = 0;
         rb.freezeRotation = true;
         playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = FindAnyObjectByType<Player3>();
         if (playerObject != null)
         {
             playerTransform = playerObject.transform;
@@ -53,6 +61,7 @@ public class Witch : MonoBehaviour
             }
             return;
         }
+        if (hp <= 50) return;
         GameObject otherBullet = GameObject.FindGameObjectWithTag("EnemyBullet");
         if (Time.time >= specialNextFireTime && hp < maxHP / 2 && canSpecialAttack)
         {
@@ -113,13 +122,9 @@ public class Witch : MonoBehaviour
         {
             if (hp < maxHP / 2 && canSpecialAttack) return;
             hp--;
+            if (hp == 3) Time.timeScale = 0.3f;//演出
             if (hp <= 0)
             {
-                GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
-                foreach (GameObject obj in objects)
-                {
-                    Destroy(obj);
-                }
                 AudioSource[] audioSource = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
                 if (SoundPlayer.instance != null && dieSE != null && audioSource != null)
                 {
@@ -132,8 +137,22 @@ public class Witch : MonoBehaviour
                     }
                     SoundPlayer.instance.PlaySE(dieSE);
                 }
+                CameraShaker.instance.Shake(1.0f, 1.0f);
+                playerObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+                Time.timeScale = 1.0f;//演出
+                player.Clear();
                 Destroy(gameObject);
             }
         }
     }
+    void OnDestroy()
+    {
+        // ボスが破壊されたときにエネミーバレットをすべて削除
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (GameObject obj in objects)
+        {
+            Destroy(obj);
+        }
+    }
+
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Bullet3 : MonoBehaviour
 {
+    [SerializeField, Header("’e‘¬")]
     public float speed = 10f;
     private Rigidbody2D rb;
     private Player3 player;

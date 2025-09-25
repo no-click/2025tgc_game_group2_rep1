@@ -3,8 +3,10 @@ using UnityEngine;
 public class EnemyScript02 : MonoBehaviour
 {
     // プレイヤーのTransform
-    public Transform playerTransform;
+    private Transform playerTransform;
+    [SerializeField, Header("追ってくるスピード")]
     public float speed = 5.0f;
+    [SerializeField, Header("最大体力")]
     public int hp = 1;
 
 

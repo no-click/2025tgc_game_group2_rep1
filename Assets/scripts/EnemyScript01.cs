@@ -1,14 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemyScript01 : MonoBehaviour
 {
 
-    // “®‚«‚Ì‘¬‚³
+    [SerializeField, Header("“®‚­‘¬‚³")]
     public float speed = 5.0f;
-
-    public string gameOverSceneName = "GameOver";
-
 
     void Start()
     {
@@ -33,10 +29,6 @@ public class EnemyScript01 : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             Destroy(gameObject);
-        }
-        else if (other.CompareTag("Player"))
-        {
-            //SceneManager.LoadScene(gameOverSceneName);
         }
     }
 

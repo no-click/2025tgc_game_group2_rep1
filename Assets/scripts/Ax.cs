@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Ax : MonoBehaviour
 {
+    [SerializeField, Header("íeë¨")]
     public float speed = 5f;
+    [SerializeField, Header("íeÇÃê∂ê¨ïpìx")]
     public float fireRate = 1.0f;
-    public float followSpeed = 0.5f;
-    public int limit = 20;
+    private float followSpeed = 0.5f;
+    private int limit = 20;
     private GameObject Bullet;
     private Rigidbody2D rb;
     private Transform player;

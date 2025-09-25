@@ -207,5 +207,14 @@ public class Player3 : MonoBehaviour
         return dDamage;
     }
 
+    public void Clear()
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (GameObject obj in objects)
+        {
+            Destroy(obj);
+        }
+    }
+
 }
     

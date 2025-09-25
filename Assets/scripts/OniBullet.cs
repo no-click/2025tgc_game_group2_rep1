@@ -1,15 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class OniBullet : MonoBehaviour
 {
+    [SerializeField, Header("’e‘¬")]
     public float moveSpeed = 5.0f;
-
-    public float rotationSpeed = 100.0f;
-
+    private float rotationSpeed = 100.0f;
     private Transform enemyTransform;
-
-    public string gameOverSceneName = "GameOver";
 
     void Start()
     {
@@ -41,14 +37,9 @@ public class OniBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Wall") || other.CompareTag("Player"))
         {
             Destroy(gameObject);
-        }
-        else if (other.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-            //SceneManager.LoadScene(gameOverSceneName);
         }
     }
 

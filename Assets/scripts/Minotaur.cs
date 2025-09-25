@@ -4,16 +4,22 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Minotaur : MonoBehaviour
 {
+    [SerializeField, Header("“oê‚Ì‘¬‚³")]
     public float speed = 20f;
+    [SerializeField, Header("”­Ë‚·‚é’e")]
     public GameObject Ax;
+    [SerializeField, Header("”­Ë‚·‚é’e")]
     public GameObject Ax1;
+    [SerializeField, Header("’Ç‚Á‚Ä‚­‚é‹——£")]
     public float stopDistance = 5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
+    [SerializeField, Header("Å‘å‘Ì—Í")]
     public int hp = 300;
     private GameObject playerObject;
     private Transform playerTransform;
     private float maxHP;
+    [SerializeField, Header("UŒ‚•p“x")]
     public float fireRate = 3.0f;
     private float nextFireTime;
     private bool isMovingIntoPosition = true;

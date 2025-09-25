@@ -1,13 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemyBossScript : MonoBehaviour
 {
     public GameObject OniBullet;
+    [SerializeField, Header("UŒ‚•p“x")]
     public float fireRate = 1.0f;
+    [SerializeField, Header("“oê‚ÌƒXƒs[ƒh")]
     public float speed = 5.0f;
-    public float distance = 2.0f;
-    public string gameOverSceneName = "GameOver";
+    private float distance = 2.0f;
+    [SerializeField, Header("Å‘å‘Ì—Í")]
     public int hp = 5;
     private float nextFireTime;
     private float startAngle = 20.0f;
