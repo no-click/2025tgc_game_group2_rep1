@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5146750749366156595, guid: b192a6985bb515a4da6cc28b52cfd892, type: 3}
+  m_Sprite: {fileID: 6852436768385645649, guid: 5dc08e72b3e7ebb49bda2e738d764725, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.4133334, y: 3.4133334}
+    oldSize: {x: 4.98, y: 5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,6 +150,4 @@ MonoBehaviour:
   OniBullet: {fileID: 0}
   fireRate: 1
   speed: 5
-  distance: 2
-  gameOverSceneName: GameOver
-  hp: 20
+  hp: 40
