@@ -78,6 +78,8 @@ public class Wolf : MonoBehaviour
 
             yield return null;
         }
+        currentDistance = initialDistance;
+        ran = Random.Range(180.0f, 360f);
         for (int i = 0; i < 16; i++)
         {
             currentDistance *= 1.1f;
