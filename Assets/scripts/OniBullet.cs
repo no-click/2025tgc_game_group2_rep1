@@ -4,7 +4,7 @@ public class OniBullet : MonoBehaviour
 {
     [SerializeField, Header("’e‘¬")]
     public float moveSpeed = 5.0f;
-    private float rotationSpeed = 100.0f;
+    private float rotationSpeed = 40.0f;
     private Transform enemyTransform;
 
     void Start()
