@@ -43,6 +43,7 @@ public class EnemyBullet3Ex : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Wall"))
         {
+            if (timer < 1f) return;
             Destroy(gameObject);
         }
     }

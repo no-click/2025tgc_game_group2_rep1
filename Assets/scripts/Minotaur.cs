@@ -23,6 +23,10 @@ public class Minotaur : MonoBehaviour
     public float fireRate = 3.0f;
     private float nextFireTime;
     private bool isMovingIntoPosition = true;
+    [SerializeField, Header("死亡時のSE")]
+    public AudioClip dieSE;
+    private Player3 player;
+
 
     void Awake()
     {
@@ -30,6 +34,7 @@ public class Minotaur : MonoBehaviour
         rb.gravityScale = 0;
         rb.freezeRotation = true;
         playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = FindAnyObjectByType<Player3>();
         if (playerObject != null)
         {
             playerTransform = playerObject.transform;
@@ -110,15 +115,36 @@ public class Minotaur : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             hp--;
+            if (hp == 3) Time.timeScale = 0.3f;//演出
             if (hp <= 0)
             {
-                GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
-                foreach (GameObject obj in objects)
+                AudioSource[] audioSource = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+                if (SoundPlayer.instance != null && dieSE != null && audioSource != null)
                 {
-                    Destroy(obj);
+                    foreach (AudioSource audio in audioSource)
+                    {
+                        if (audio.isPlaying)
+                        {
+                            audio.Stop();
+                        }
+                    }
+                    SoundPlayer.instance.PlaySE(dieSE);
                 }
+                CameraShaker.instance.Shake(1.0f, 1.0f);
+                Time.timeScale = 1.0f;//演出
+                player.Clear();
                 Destroy(gameObject);
             }
+        }
+    }
+
+    void OnDestroy()
+    {
+        // ボスが破壊されたときにエネミーバレットをすべて削除
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (GameObject obj in objects)
+        {
+            Destroy(obj);
         }
     }
 

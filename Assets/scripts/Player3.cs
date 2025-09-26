@@ -22,6 +22,7 @@ public class Player3 : MonoBehaviour
     private float damageCycle;
     [SerializeField, Header("発射SE")]
     public AudioClip shotSE;
+    public AudioClip damageSE;
     //点滅処理
     private SpriteRenderer spriteRenderer;
     private float damageTimeCount;
@@ -189,6 +190,7 @@ public class Player3 : MonoBehaviour
                 hp--;
                 dDamage = true;
                 CameraShaker.instance.Shake(0.3f, 0.1f);
+                SoundPlayer.instance.PlaySE(damageSE);
                 if (hp <= 0)
                 {
                     SceneManager.LoadScene(gameOverSceneName);

@@ -61,7 +61,6 @@ public class Witch : MonoBehaviour
             }
             return;
         }
-        if (hp <= 50) return;
         GameObject otherBullet = GameObject.FindGameObjectWithTag("EnemyBullet");
         if (Time.time >= specialNextFireTime && hp < maxHP / 2 && canSpecialAttack)
         {
@@ -115,7 +114,6 @@ public class Witch : MonoBehaviour
         if (Time.time >= nextFireTime) canSpecialAttack = false;
     }
 
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullet"))
@@ -138,13 +136,13 @@ public class Witch : MonoBehaviour
                     SoundPlayer.instance.PlaySE(dieSE);
                 }
                 CameraShaker.instance.Shake(1.0f, 1.0f);
-                playerObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
                 Time.timeScale = 1.0f;//演出
                 player.Clear();
                 Destroy(gameObject);
             }
         }
     }
+
     void OnDestroy()
     {
         // ボスが破壊されたときにエネミーバレットをすべて削除

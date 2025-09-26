@@ -1338,7 +1338,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5137255, g: 0.42745098, b: 0.44705883, a: 0.54509807}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3774,6 +3774,7 @@ MonoBehaviour:
   damageTime: 1
   damageCycle: 0.25
   shotSE: {fileID: 8300000, guid: b14e44299cc3efe45bec22cbf1f27069, type: 3}
+  damageSE: {fileID: 8300000, guid: 2b7e29184ee4f24478487f7ed442064c, type: 3}
   maxPowDistance: 3
   bulletSpawnOffset: 1
 --- !u!114 &347073407
@@ -3969,7 +3970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy01: {fileID: 4853847377420237951, guid: 274f11d92f3c619468c34007ed0cf5fc, type: 3}
   Enemy02: {fileID: 4853847377420237951, guid: 274f11d92f3c619468c34007ed0cf5fc, type: 3}
-  BossEnemy: {fileID: 642147620075517508, guid: 83591b3ce9b56dd41b16a6f33c071128, type: 3}
+  BossEnemy: {fileID: 8871674743480900786, guid: d2e909990ac75f248b16c44b81620feb, type: 3}
   spawnCooldown: 5
   firstWave: 0
   secondWave: 0
@@ -8933,7 +8934,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5137255, g: 0.42745098, b: 0.44705883, a: 0.54509807}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
