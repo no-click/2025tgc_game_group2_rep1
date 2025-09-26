@@ -959,11 +959,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6f43c42d33d9d499bf05d76dc4783e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 5.5
   bullet: {fileID: 324784509737126622, guid: 25aa8bafb9fed9c4aba514e6c94805a5, type: 3}
   gameOverSceneName: GameOver
   hp: 2
-  fireRate: 0.3
+  fireRate: 0.5
 --- !u!50 &1132588400
 Rigidbody2D:
   serializedVersion: 5
@@ -1122,10 +1122,9 @@ MonoBehaviour:
   Enemy01: {fileID: 3843401086222829870, guid: d411b0a3ef444b14d81cde50bafc62fa, type: 3}
   Enemy02: {fileID: 3300464548690771773, guid: 23fe151c0b88c7d48bc05de84ba73703, type: 3}
   BossEnemy: {fileID: 8904784066148085138, guid: e8cd3eb7418d0b04db5237f20ec52617, type: 3}
-  level: 1
   spawnCooldown: 5
-  firstTime: 1
-  spawnTime: 1
+  firstWave: 1
+  secondWave: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
