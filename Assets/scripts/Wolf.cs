@@ -78,6 +78,17 @@ public class Wolf : MonoBehaviour
 
             yield return null;
         }
+        for (int i = 0; i < 16; i++)
+        {
+            currentDistance *= 1.1f;
+            float angle = ran - i * 22.5f;
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            Vector3 direction = rotation * Vector3.up;
+            Vector3 spawnPosition = enemyPosition + direction * currentDistance;
+            Instantiate(bullet, spawnPosition, rotation);
+
+            yield return null;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
