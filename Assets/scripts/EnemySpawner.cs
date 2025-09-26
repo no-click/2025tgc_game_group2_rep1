@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject Enemy01;
     public GameObject Enemy02;
     public GameObject BossEnemy;
-
+    public string gameClearSceneName = "GameClear";//クリア時に遷移するシーン名
     private int y = 5; 
     private int x;
 
@@ -44,6 +45,10 @@ public class EnemySpawner : MonoBehaviour
             {
                 Instantiate(BossEnemy, new Vector3(0, 10, 0), Quaternion.identity);
                 secondWave--;
+            }
+            else
+            {
+                SceneManager.LoadScene(gameClearSceneName);
             }
         }
     }

@@ -961,7 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5.5
   bullet: {fileID: 324784509737126622, guid: 25aa8bafb9fed9c4aba514e6c94805a5, type: 3}
-  gameOverSceneName: GameOver
+  gameOverSceneName: GameOverMomo
   hp: 2
   fireRate: 0.5
 --- !u!50 &1132588400
@@ -1122,6 +1122,7 @@ MonoBehaviour:
   Enemy01: {fileID: 3843401086222829870, guid: d411b0a3ef444b14d81cde50bafc62fa, type: 3}
   Enemy02: {fileID: 3300464548690771773, guid: 23fe151c0b88c7d48bc05de84ba73703, type: 3}
   BossEnemy: {fileID: 8904784066148085138, guid: e8cd3eb7418d0b04db5237f20ec52617, type: 3}
+  gameClearSceneName: GameClearMomo
   spawnCooldown: 5
   firstWave: 1
   secondWave: 1

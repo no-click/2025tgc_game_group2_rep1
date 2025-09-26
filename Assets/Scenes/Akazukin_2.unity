@@ -3767,7 +3767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   bullet: {fileID: 1037840134596667299, guid: 4f7b003c1752f6b45ac78c977f001299, type: 3}
-  gameOverSceneName: GameOver
+  gameOverSceneName: GameOverAkazukin
   hp: 10
   fireRate: 0.1
   isBarrier: 0
@@ -3970,10 +3970,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy01: {fileID: 4853847377420237951, guid: 274f11d92f3c619468c34007ed0cf5fc, type: 3}
   Enemy02: {fileID: 4853847377420237951, guid: 274f11d92f3c619468c34007ed0cf5fc, type: 3}
-  BossEnemy: {fileID: 8871674743480900786, guid: d2e909990ac75f248b16c44b81620feb, type: 3}
+  BossEnemy: {fileID: 642147620075517508, guid: 83591b3ce9b56dd41b16a6f33c071128, type: 3}
+  gameClearSceneName: Akazukin_3
   spawnCooldown: 5
   firstWave: 0
-  secondWave: 0
+  secondWave: 2
 --- !u!82 &347073413
 AudioSource:
   m_ObjectHideFlags: 0
