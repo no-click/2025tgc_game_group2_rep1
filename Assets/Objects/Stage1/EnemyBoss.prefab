@@ -151,3 +151,4 @@ MonoBehaviour:
   fireRate: 1
   speed: 5
   hp: 40
+  nextSceneName: GameClearMomo

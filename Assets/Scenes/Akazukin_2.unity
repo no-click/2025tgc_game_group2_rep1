@@ -3773,8 +3773,8 @@ MonoBehaviour:
   isBarrier: 0
   damageTime: 1
   damageCycle: 0.25
-  shotSE: {fileID: 8300000, guid: b14e44299cc3efe45bec22cbf1f27069, type: 3}
-  damageSE: {fileID: 8300000, guid: 2b7e29184ee4f24478487f7ed442064c, type: 3}
+  shotSE: {fileID: 0}
+  damageSE: {fileID: 8300000, guid: 30cdf5c41d4d6fd44af56111c6073f59, type: 3}
   maxPowDistance: 3
   bulletSpawnOffset: 1
 --- !u!114 &347073407
@@ -3985,8 +3985,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c11ea0dd1e2f5bb4fa075c5fc859ba6d, type: 3}
-  m_Resource: {fileID: 8300000, guid: c11ea0dd1e2f5bb4fa075c5fc859ba6d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f589b8f948ceceb4e994ef04ebc16497, type: 3}
+  m_Resource: {fileID: 8300000, guid: f589b8f948ceceb4e994ef04ebc16497, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

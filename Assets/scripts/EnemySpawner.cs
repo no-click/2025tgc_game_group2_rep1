@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(gameClearSceneName);
+                //SceneManager.LoadScene(gameClearSceneName);
             }
         }
     }

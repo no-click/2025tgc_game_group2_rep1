@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections; // コルーチンを使うために必要です
+using UnityEngine.SceneManagement; // SceneManagerを使用するために必要です
 
 public class Witch : MonoBehaviour
 {
@@ -26,6 +28,10 @@ public class Witch : MonoBehaviour
     private bool canSpecialAttack = true;
     [SerializeField, Header("死亡時のSE")]
     public AudioClip dieSE;
+    [SerializeField, Header("必殺技の効果音")]
+    public AudioClip specialSE;
+    [SerializeField, Header("次のシーン名")]
+    public string nextSceneName = "GameClear";
 
 
     void Awake()
@@ -48,6 +54,7 @@ public class Witch : MonoBehaviour
 
     void Update()
     {
+        if (hp <= 0) return;
         //  登場時
         if (isMovingIntoPosition)
         {
@@ -93,6 +100,7 @@ public class Witch : MonoBehaviour
         if (specialFireRate == 1.5) {
             nextFireTime = Time.time + 20.0f;
             specialTimer = Time.time;
+            SoundPlayer.instance.PlaySE(specialSE);
 
         }
         int bulletCount = (int) ((Time.time - specialTimer) * 0.7); // 1回の発射で何方向に撃つか
@@ -135,12 +143,35 @@ public class Witch : MonoBehaviour
                     }
                     SoundPlayer.instance.PlaySE(dieSE);
                 }
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
+                foreach (GameObject obj in objects)
+                {
+                    Destroy(obj);
+                }
                 CameraShaker.instance.Shake(1.0f, 1.0f);
                 Time.timeScale = 1.0f;//演出
-                player.Clear();
-                Destroy(gameObject);
+                // 2. シーン遷移コルーチンを開始
+                StartCoroutine(LoadNextSceneAfterSE());
+
+                GetComponent<Renderer>().enabled = false;
+                GetComponent<Collider2D>().enabled = false;
+                gameObject.tag = "Untagged";
             }
         }
+    }
+
+    private IEnumerator LoadNextSceneAfterSE()
+    {
+        // SEの長さに相当する時間だけ待機
+        if (dieSE != null)
+        {
+            yield return new WaitForSeconds(dieSE.length);
+        }
+
+        // 待機後、次のシーンをロード
+        SceneManager.LoadScene(nextSceneName);
+
+        // ※シーンをロードする前にこのオブジェクトを破棄しないことが重要
     }
 
     void OnDestroy()

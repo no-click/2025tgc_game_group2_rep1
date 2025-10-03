@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyBossScript : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class EnemyBossScript : MonoBehaviour
     private float distance = 2.0f;
     [SerializeField, Header("Å‘å‘Ì—Í")]
     public int hp = 5;
+    [SerializeField, Header("Ÿ‚ÌƒV[ƒ“–¼")]
+    public string nextSceneName = "GameClearMomotaro";
     private float nextFireTime;
     private float startAngle = 20.0f;
 
@@ -64,6 +67,7 @@ public class EnemyBossScript : MonoBehaviour
                 {
                     Destroy(obj);
                 }
+                SceneManager.LoadScene(nextSceneName);
                 Destroy(gameObject);
             }
         }

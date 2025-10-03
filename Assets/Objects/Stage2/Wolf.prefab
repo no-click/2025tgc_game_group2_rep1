@@ -171,3 +171,5 @@ MonoBehaviour:
   initialDistance: 1
   fireRate: 0.5
   bullet: {fileID: 0}
+  dieSE: {fileID: 8300000, guid: 7ea406c59c1eb7143b1a2f22d42e28ee, type: 3}
+  nextSceneName: GameClearAkazukin
