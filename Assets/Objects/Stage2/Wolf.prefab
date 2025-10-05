@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  hp: 1000
+  hp: 300
   coolTime: 4
   initialDistance: 1
   fireRate: 0.5

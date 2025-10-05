@@ -179,7 +179,7 @@ MonoBehaviour:
   Ax: {fileID: 0}
   Ax1: {fileID: 0}
   stopDistance: 5
-  hp: 1000
+  hp: 300
   fireRate: 3
   dieSE: {fileID: 8300000, guid: 761cbf5cd8196a2448b8f902f198ee80, type: 3}
   nextSceneName: Akazukin_2

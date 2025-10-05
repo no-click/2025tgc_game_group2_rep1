@@ -152,9 +152,10 @@ MonoBehaviour:
   speed: 3
   Ax: {fileID: 0}
   bullet: {fileID: 0}
-  hp: 500
+  hp: 300
   fireRate: 3
   dieSE: {fileID: 8300000, guid: 761cbf5cd8196a2448b8f902f198ee80, type: 3}
+  specialSE: {fileID: 0}
   nextSceneName: Akazukin_3
 --- !u!50 &746785909908145900
 Rigidbody2D:
