@@ -151,6 +151,6 @@ MonoBehaviour:
   height: -0.04
   swaySpeed: 3
   bullet: {fileID: 0}
-  fireRate: 0.2
+  fireRate: 1
   hp: 50
   dieSE: {fileID: 8300000, guid: f6db11c1b543d9f4cb719da24c74fa29, type: 3}

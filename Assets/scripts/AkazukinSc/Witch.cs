@@ -26,6 +26,8 @@ public class Witch : MonoBehaviour
     private float specialAngle = 270.0f;
     private bool isMovingIntoPosition = true;
     private bool canSpecialAttack = true;
+    [SerializeField, Header("É{ÉXêÌÇÃBGM")]
+    public AudioClip BGM;
     [SerializeField, Header("éÄñSéûÇÃSE")]
     public AudioClip dieSE;
     [SerializeField, Header("ïKéEãZÇÃå¯â âπ")]
@@ -50,6 +52,22 @@ public class Witch : MonoBehaviour
         maxHP = hp;
         nextFireTime = Time.time;
         specialNextFireTime = Time.time;
+    }
+
+    void Start()
+    {
+        AudioSource[] audioSource = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        if (SoundPlayer.instance != null && dieSE != null && audioSource != null)
+        {
+            foreach (AudioSource audio in audioSource)
+            {
+                if (audio.isPlaying)
+                {
+                    audio.Stop();
+                }
+            }
+            SoundPlayer.instance.PlaySE(BGM);
+        }
     }
 
     void Update()

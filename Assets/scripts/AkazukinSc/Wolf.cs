@@ -137,7 +137,7 @@ public class Wolf : MonoBehaviour
                     SoundPlayer.instance.PlaySE(dieSE);
                 }
 
-                CameraShaker.instance.Shake(1.0f, 1.0f);
+                CameraShaker.instance.Shake(3.0f, 1.0f);
                 Time.timeScale = 1.0f;//ââèo
                 GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
                 foreach (GameObject obj in objects)

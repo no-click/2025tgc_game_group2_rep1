@@ -181,5 +181,6 @@ MonoBehaviour:
   stopDistance: 5
   hp: 300
   fireRate: 3
+  BGM: {fileID: 8300000, guid: f589b8f948ceceb4e994ef04ebc16497, type: 3}
   dieSE: {fileID: 8300000, guid: 761cbf5cd8196a2448b8f902f198ee80, type: 3}
   nextSceneName: Akazukin_2

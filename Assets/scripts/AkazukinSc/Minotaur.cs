@@ -24,6 +24,8 @@ public class Minotaur : MonoBehaviour
     public float fireRate = 3.0f;
     private float nextFireTime;
     private bool isMovingIntoPosition = true;
+    [SerializeField, Header("É{ÉXêÌÇÃBGM")]
+    public AudioClip BGM;
     [SerializeField, Header("éÄñSéûÇÃSE")]
     public AudioClip dieSE;
     private Player3 player;
@@ -46,6 +48,22 @@ public class Minotaur : MonoBehaviour
         Ax1 = Resources.Load<GameObject>("Stage2/Ax1");
         maxHP = hp;
         nextFireTime = Time.time;
+    }
+
+    void Start()
+    {
+        AudioSource[] audioSource = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        if (SoundPlayer.instance != null && dieSE != null && audioSource != null)
+        {
+            foreach (AudioSource audio in audioSource)
+            {
+                if (audio.isPlaying)
+                {
+                    audio.Stop();
+                }
+            }
+            SoundPlayer.instance.PlaySE(BGM);
+        }
     }
 
     void Update()
