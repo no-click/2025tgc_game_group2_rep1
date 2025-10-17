@@ -3973,7 +3973,7 @@ MonoBehaviour:
   gameClearSceneName: Akazukin_3
   spawnCooldown: 5
   firstWave: 0
-  secondWave: 2
+  secondWave: 0
 --- !u!1 &357854414
 GameObject:
   m_ObjectHideFlags: 0

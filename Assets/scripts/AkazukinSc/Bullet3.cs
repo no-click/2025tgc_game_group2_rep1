@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet3 : MonoBehaviour
 {
-    [SerializeField, Header("’e‘¬")]
+    [SerializeField, Header("ï¿½eï¿½ï¿½")]
     public float speed = 10f;
     private Rigidbody2D rb;
     private Player3 player;
@@ -15,7 +15,12 @@ public class Bullet3 : MonoBehaviour
 
     void Update()
     {
-
+        Vector2 movement = rb.linearVelocity;
+        if (movement.magnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -27,10 +32,3 @@ public class Bullet3 : MonoBehaviour
     }
 
 }
-
-
-
-
-
-
-

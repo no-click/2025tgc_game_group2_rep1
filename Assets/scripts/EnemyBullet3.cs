@@ -11,26 +11,19 @@ public class EnemyBullet3 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // 外部から角度を受け取り、その方向に弾を動かす
     public void SetAngle(float angle)
     {
-        // 角度（度）をラジアンに変換
         float radianAngle = angle * Mathf.Deg2Rad;
-
-        // ラジアンから方向ベクトルを計算
         Vector2 direction = new Vector2(Mathf.Cos(radianAngle), Mathf.Sin(radianAngle));
-
-        // 弾に速度を適用
         rb.linearVelocity = direction * speed;
+        float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
     }
-
-    // Updateメソッドは不要になるため削除（物理演算はSetAngleで一度だけ行うため）
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Wall"))
         {
-            //if (other.gameObject.GetComponent<Player3>().IsDamage()) return;
             Destroy(gameObject);
         }
     }

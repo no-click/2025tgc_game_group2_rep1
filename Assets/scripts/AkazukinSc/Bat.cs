@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UpDownMover : MonoBehaviour
+public class Bat : MonoBehaviour
 {
     [SerializeField, Header("追跡のスピード")]
     public float speed = 5.0f;

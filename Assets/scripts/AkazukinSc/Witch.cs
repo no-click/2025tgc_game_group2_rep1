@@ -126,7 +126,7 @@ public class Witch : MonoBehaviour
         float angleStep = 360f / bulletCount;
         for (int i = 0; i < bulletCount; i++)
         {
-            float angle = i * angleStep + specialAngle; // ‰ñ“]‚ð‰Á‚¦‚é
+            float angle = i * angleStep + specialAngle;
             GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
             EnemyBullet3 bulletScript = newBullet.GetComponent<EnemyBullet3>();
             if (bulletScript != null)
