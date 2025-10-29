@@ -86,7 +86,7 @@ public class Player3 : MonoBehaviour
     }
 
     //距離に応じて撃つ弾の数を返すメソッド
-    int GetBulletCount(float distance)
+    public int GetBulletCount(float distance)
     {
         if (distance <= maxPowDistance)
         {
@@ -123,7 +123,6 @@ public class Player3 : MonoBehaviour
 
     void Shoot(GameObject target, int count)
     {
-        //プレイヤーから少し離れた位置を計算
         Vector3 directionToEnemy = (target.transform.position - transform.position).normalized;
         Vector3 spawnPosition = transform.position + directionToEnemy * bulletSpawnOffset;
         float angleStep;
@@ -133,34 +132,31 @@ public class Player3 : MonoBehaviour
         }
         else if (count == 2)
         {
-            angleStep = 10f; // 弾が2発の場合の角度差
+            angleStep = 10f;
         }
-        else // count == 3
+        else
         {
-            angleStep = 20f; // 弾が3発の場合の角度差
+            angleStep = 20f;
         }
-        // 複数の弾を撃つためのループ
+        int bonusMultiplier = count;
         for (int i = 0; i < count; i++)
         {
-            // 角度の計算
             float currentAngle;
-            if (count % 2 == 0) // 偶数個の弾の場合
+            if (count % 2 == 0)
             {
                 currentAngle = -angleStep / 2f + (i * angleStep);
             }
-            else // 奇数個の弾の場合
+            else
             {
                 currentAngle = -angleStep * (count / 2) + (i * angleStep);
             }
-
             Vector3 bulletDirection = Quaternion.Euler(0, 0, currentAngle) * directionToEnemy;
-            // 弾を計算した位置から生成して発射
             GameObject newBullet = Instantiate(bullet, spawnPosition, Quaternion.identity);
             Rigidbody2D bulletRb = newBullet.GetComponent<Rigidbody2D>();
             Bullet3 bulletScript = newBullet.GetComponent<Bullet3>();
-
             if (bulletRb != null && bulletScript != null)
             {
+                bulletScript.SetBonus(bonusMultiplier);
                 bulletRb.linearVelocity = bulletDirection.normalized * bulletScript.speed;
             }
         }

@@ -10,5 +10,6 @@ public class StartButton : MonoBehaviour
     public void OnStartButtonClicked()
     {
         SceneManager.LoadScene(nextSceneName);
+        if(nextSceneName=="Title"&& ScoreManager.instance != null) ScoreManager.ResetAndDestroy();
     }
 }

@@ -1140,7 +1140,7 @@ MonoBehaviour:
   gameClearSceneName: GameClearMomo
   spawnCooldown: 5
   firstWave: 0
-  secondWave: 0
+  secondWave: 2
 --- !u!82 &1132588405
 AudioSource:
   m_ObjectHideFlags: 0
