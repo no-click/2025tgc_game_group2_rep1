@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Momotaro.unity
     guid: 49a968312747ee344849ec60eaa4acab
   - enabled: 1
-    path: Assets/Scenes/GameOverMomo.unity
+    path: Assets/Scenes/GameoverMomo.unity
     guid: eed9a8b8cd294b845a095473a18420b1
   - enabled: 1
     path: Assets/Scenes/Title.unity
