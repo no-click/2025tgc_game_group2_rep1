@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b33ede9068e6e84bae2a82a045790be
+guid: 6117c58475fd12a42ac72e2f4c3d1b38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3964229680301730733
-    second: Gemini_Generated_Image_jc1e60jc1e60jc1e-removebg-preview_0
+      213: 8215501260600795056
+    second: "ChatGPT_Image_2025\u5E7410\u670830\u65E5_08_04_55-removebg-preview_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gemini_Generated_Image_jc1e60jc1e60jc1e-removebg-preview_0
+      name: "ChatGPT_Image_2025\u5E7410\u670830\u65E5_08_04_55-removebg-preview_0"
       rect:
         serializedVersion: 2
-        x: 48
-        y: 8
-        width: 373
-        height: 467
+        x: 73
+        y: 29
+        width: 345
+        height: 439
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3541e81fb1a3cf8c0800000000000000
-      internalID: -3964229680301730733
+      spriteID: 0bf52e17ed2530270800000000000000
+      internalID: 8215501260600795056
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Gemini_Generated_Image_jc1e60jc1e60jc1e-removebg-preview_0: -3964229680301730733
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

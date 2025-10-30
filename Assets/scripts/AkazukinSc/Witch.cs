@@ -1,23 +1,30 @@
-using UnityEngine;
-using System.Collections; // ƒRƒ‹[ƒ`ƒ“‚ğg‚¤‚½‚ß‚É•K—v‚Å‚·
-using UnityEngine.SceneManagement; // SceneManager‚ğg—p‚·‚é‚½‚ß‚É•K—v‚Å‚·
+ï»¿using UnityEngine;
+using System.Collections; // ã‚³ãƒ«ãƒ¼ãƒãƒ³ã‚’ä½¿ã†ãŸã‚ã«å¿…è¦ã§ã™
+using UnityEngine.SceneManagement; // SceneManagerã‚’ä½¿ç”¨ã™ã‚‹ãŸã‚ã«å¿…è¦ã§ã™
 
 public class Witch : MonoBehaviour
 {
-    [SerializeField, Header("“oê‚ÌƒXƒs[ƒh")]
+    [SerializeField, Header("ç™»å ´æ™‚ã®ã‚¹ãƒ”ãƒ¼ãƒ‰")]
     public float speed = 20f;
+    [SerializeField, Header("æºã‚Œå¹…")] // â­ è¿½åŠ 
+    public float swayAmplitude = 0.5f; // Yè»¸æ–¹å‘ã®æœ€å¤§ç§»å‹•è·é›¢
+
+    [SerializeField, Header("æºã‚Œé€Ÿåº¦")] // â­ è¿½åŠ 
+    public float swaySpeed = 2f; // æºã‚Œã‚‹é€Ÿã•
+
+    private Vector3 initialPosition; // â­ è¿½åŠ : æºã‚Œã®ä¸­å¿ƒä½ç½®ã‚’ä¿æŒ
     private Player3 player;
-    [SerializeField, Header("”­Ë‚·‚é’e")]
+    [SerializeField, Header("ç™ºå°„ã™ã‚‹å¼¾")]
     public GameObject Ax;
-    [SerializeField, Header("”­Ë‚·‚é’e")]
+    [SerializeField, Header("ç™ºå°„ã™ã‚‹å¼¾")]
     public GameObject bullet;
     private Rigidbody2D rb;
-    [SerializeField, Header("Å‘å‘Ì—Í")]
+    [SerializeField, Header("æœ€å¤§ä½“åŠ›")]
     public int hp = 300;
     private GameObject playerObject;
     private Transform playerTransform;
     private float maxHP;
-    [SerializeField, Header("UŒ‚•p“x")]
+    [SerializeField, Header("æ”»æ’ƒé »åº¦")]
     public float fireRate = 3.0f;
     private float specialTimer = 0;
     private float nextFireTime;
@@ -26,13 +33,13 @@ public class Witch : MonoBehaviour
     private float specialAngle = 270.0f;
     private bool isMovingIntoPosition = true;
     private bool canSpecialAttack = true;
-    [SerializeField, Header("ƒ{ƒXí‚ÌBGM")]
+    [SerializeField, Header("ãƒœã‚¹æˆ¦ã®BGM")]
     public AudioClip BGM;
-    [SerializeField, Header("€–S‚ÌSE")]
+    [SerializeField, Header("æ­»äº¡æ™‚ã®SE")]
     public AudioClip dieSE;
-    [SerializeField, Header("•KE‹Z‚ÌŒø‰Ê‰¹")]
+    [SerializeField, Header("å¿…æ®ºæŠ€ã®åŠ¹æœéŸ³")]
     public AudioClip specialSE;
-    [SerializeField, Header("Ÿ‚ÌƒV[ƒ“–¼")]
+    [SerializeField, Header("æ¬¡ã®ã‚·ãƒ¼ãƒ³å")]
     public string nextSceneName = "GameClear";
 
 
@@ -73,7 +80,7 @@ public class Witch : MonoBehaviour
     void Update()
     {
         if (hp <= 0) return;
-        //  “oê
+        //  ç™»å ´æ™‚
         if (isMovingIntoPosition)
         {
             if (transform.position.y > 3)
@@ -83,14 +90,18 @@ public class Witch : MonoBehaviour
             else
             {
                 isMovingIntoPosition = false;
+                initialPosition = transform.position;
             }
             return;
         }
         GameObject otherBullet = GameObject.FindGameObjectWithTag("EnemyBullet");
+        float yOffset = Mathf.Sin(Time.time * swaySpeed) * swayAmplitude;
+        transform.position = initialPosition + new Vector3(0, yOffset, 0);
         if (Time.time >= specialNextFireTime && hp < maxHP / 2 && canSpecialAttack)
         {
             SpecialShoot();
             specialNextFireTime = Time.time + specialFireRate;
+            return;
         }
         else if (otherBullet == null && Time.time >= nextFireTime)
         {
@@ -121,7 +132,7 @@ public class Witch : MonoBehaviour
             SoundPlayer.instance.PlaySE(specialSE);
 
         }
-        int bulletCount = (int) ((Time.time - specialTimer) * 0.7); // 1‰ñ‚Ì”­Ë‚Å‰½•ûŒü‚ÉŒ‚‚Â‚©
+        int bulletCount = (int) ((Time.time - specialTimer) * 0.7); // 1å›ã®ç™ºå°„ã§ä½•æ–¹å‘ã«æ’ƒã¤ã‹
         if( bulletCount > 12) bulletCount = 12;
         float angleStep = 360f / bulletCount;
         for (int i = 0; i < bulletCount; i++)
@@ -135,7 +146,7 @@ public class Witch : MonoBehaviour
             }
         }
         specialAngle += 13.0f;
-        // ”­ËŠÔŠu‚ğ‚¾‚ñ‚¾‚ñ’Z‚­‚·‚é
+        // ç™ºå°„é–“éš”ã‚’ã ã‚“ã ã‚“çŸ­ãã™ã‚‹
         specialFireRate *= 0.9f;
         if (Time.time >= nextFireTime) canSpecialAttack = false;
     }
@@ -146,7 +157,7 @@ public class Witch : MonoBehaviour
         {
             if (hp < maxHP / 2 && canSpecialAttack) return;
             hp--;
-            if (hp == 3) Time.timeScale = 0.3f;//‰‰o
+            if (hp == 3) Time.timeScale = 0.3f;//æ¼”å‡º
             if (hp <= 0)
             {
                 AudioSource[] audioSource = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
@@ -167,8 +178,8 @@ public class Witch : MonoBehaviour
                     Destroy(obj);
                 }
                 CameraShaker.instance.Shake(1.0f, 1.0f);
-                Time.timeScale = 1.0f;//‰‰o
-                // 2. ƒV[ƒ“‘JˆÚƒRƒ‹[ƒ`ƒ“‚ğŠJn
+                Time.timeScale = 1.0f;//æ¼”å‡º
+                // 2. ã‚·ãƒ¼ãƒ³é·ç§»ã‚³ãƒ«ãƒ¼ãƒãƒ³ã‚’é–‹å§‹
                 StartCoroutine(LoadNextSceneAfterSE());
 
                 GetComponent<Renderer>().enabled = false;
@@ -180,21 +191,21 @@ public class Witch : MonoBehaviour
 
     private IEnumerator LoadNextSceneAfterSE()
     {
-        // SE‚Ì’·‚³‚É‘Š“–‚·‚éŠÔ‚¾‚¯‘Ò‹@
+        // SEã®é•·ã•ã«ç›¸å½“ã™ã‚‹æ™‚é–“ã ã‘å¾…æ©Ÿ
         if (dieSE != null)
         {
             yield return new WaitForSeconds(dieSE.length);
         }
 
-        // ‘Ò‹@ŒãAŸ‚ÌƒV[ƒ“‚ğƒ[ƒh
+        // å¾…æ©Ÿå¾Œã€æ¬¡ã®ã‚·ãƒ¼ãƒ³ã‚’ãƒ­ãƒ¼ãƒ‰
         SceneManager.LoadScene(nextSceneName);
 
-        // ¦ƒV[ƒ“‚ğƒ[ƒh‚·‚é‘O‚É‚±‚ÌƒIƒuƒWƒFƒNƒg‚ğ”jŠü‚µ‚È‚¢‚±‚Æ‚ªd—v
+        // â€»ã‚·ãƒ¼ãƒ³ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹å‰ã«ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç ´æ£„ã—ãªã„ã“ã¨ãŒé‡è¦
     }
 
     void OnDestroy()
     {
-        // ƒ{ƒX‚ª”j‰ó‚³‚ê‚½‚Æ‚«‚ÉƒGƒlƒ~[ƒoƒŒƒbƒg‚ğ‚·‚×‚Äíœ
+        // ãƒœã‚¹ãŒç ´å£Šã•ã‚ŒãŸã¨ãã«ã‚¨ãƒãƒŸãƒ¼ãƒãƒ¬ãƒƒãƒˆã‚’ã™ã¹ã¦å‰Šé™¤
         GameObject[] objects = GameObject.FindGameObjectsWithTag("EnemyBullet");
         foreach (GameObject obj in objects)
         {
