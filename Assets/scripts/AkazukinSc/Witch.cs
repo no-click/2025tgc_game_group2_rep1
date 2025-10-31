@@ -54,7 +54,7 @@ public class Witch : MonoBehaviour
         {
             playerTransform = playerObject.transform;
         }
-        Ax = Resources.Load<GameObject>("Stage2/Ax");
+        Ax = Resources.Load<GameObject>("Stage2/Ax_2");
         bullet = Resources.Load<GameObject>("Stage2/EnemyBullet");
         maxHP = hp;
         nextFireTime = Time.time;

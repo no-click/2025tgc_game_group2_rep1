@@ -9,7 +9,9 @@ public class StartButton : MonoBehaviour
     // ƒ{ƒ^ƒ“‚©‚çŒÄ‚Ño‚·ŠÖ”
     public void OnStartButtonClicked()
     {
+        Time.timeScale = 1.0f;
+        if (nextSceneName=="Title"&& ScoreManager.instance != null) ScoreManager.ResetAndDestroy();
         SceneManager.LoadScene(nextSceneName);
-        if(nextSceneName=="Title"&& ScoreManager.instance != null) ScoreManager.ResetAndDestroy();
+
     }
 }

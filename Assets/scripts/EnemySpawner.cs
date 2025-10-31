@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Enemy02;
     public GameObject BossEnemy;
     public string gameClearSceneName = "GameClear";//クリア時に遷移するシーン名
-    private int y = 5; 
+    private int y = 10; 
     private int x;
 
 

@@ -3810,6 +3810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  speedMultiplier: 3
   bullet: {fileID: 1037840134596667299, guid: 4f7b003c1752f6b45ac78c977f001299, type: 3}
   gameOverSceneName: GameOverAkazukin
   hp: 10
@@ -4018,7 +4019,7 @@ MonoBehaviour:
   gameClearSceneName: Akazukin_3
   spawnCooldown: 5
   firstWave: 0
-  secondWave: 2
+  secondWave: 0
 --- !u!1 &357854414
 GameObject:
   m_ObjectHideFlags: 0

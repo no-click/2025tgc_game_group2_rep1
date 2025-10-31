@@ -8,10 +8,13 @@ using System.Collections;
 public class Player3 : MonoBehaviour
 {
     public float speed = 5f;//動くスピード
+    [SerializeField, Header("加速時のスピード倍率")]
+    public float speedMultiplier = 3f;
     public GameObject bullet;//弾のプレハブ
     public string gameOverSceneName = "GameOver";//ゲームオーバーになった際に移るシーン
     private Rigidbody2D rb;
     private Vector2 moveInput;
+    private bool isSpeedingUp = false;
     public int hp = 2;
     public float fireRate = 0.1f;//弾の発射間隔
     private float nextFireTime;
@@ -49,15 +52,32 @@ public class Player3 : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
+    public void OnSpeedUp(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isSpeedingUp = true;
+        }
+        else if (context.canceled)
+        {
+            isSpeedingUp = false;
+        }
+    }
+
     void FixedUpdate()
     {
+        float currentSpeed = speed;
+        if (isSpeedingUp)
+        {
+            currentSpeed *= speedMultiplier;
+        }
         if (isBarrier)
         {
-            rb.linearVelocity = -moveInput * speed;
+            rb.linearVelocity = -moveInput * currentSpeed;
         }
         else
         {
-            rb.linearVelocity = moveInput * speed;
+            rb.linearVelocity = moveInput * currentSpeed;
         }
     }
 

@@ -27,7 +27,7 @@ public class Wolf : MonoBehaviour
     void Awake()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
-        bullet = Resources.Load<GameObject>("Stage2/EnemyBullet3EX");
+        bullet = Resources.Load<GameObject>("Stage2/EnemyBullet3EX_3");
         if (playerObject != null)
         {
             playerTransform = playerObject.transform;
