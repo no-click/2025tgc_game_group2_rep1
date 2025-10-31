@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 6eee462eab2f6bc4189a3d35917c44b4
+  - enabled: 1
     path: Assets/Scenes/StageSelection.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameoverMomo.unity
     guid: eed9a8b8cd294b845a095473a18420b1
-  - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: 6eee462eab2f6bc4189a3d35917c44b4
   - enabled: 1
     path: Assets/Scenes/Akazukin_1.unity
     guid: 6d5e587fe223e504b805276e1fea7f3d
@@ -28,13 +28,13 @@ EditorBuildSettings:
     guid: 9e3c9dfedc611d8419dbc1ebd6b75d36
   - enabled: 1
     path: Assets/Scenes/GameClearAkazukin.unity
-    guid: 76daeaf5c213dc948ae088104a4eb2e1
+    guid: 35a2c5969bf0b9845987efb704beb77c
   - enabled: 1
     path: Assets/Scenes/GameClearMoMo.unity
     guid: 99e7f8b6c7231934989cdb55c3162cf6
   - enabled: 1
     path: Assets/Scenes/GameOverAkazukin.unity
-    guid: 5a051cc682973ea4fa792dcafc381320
+    guid: 27bd7b20542de5c41aa562e7d6dfca84
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
