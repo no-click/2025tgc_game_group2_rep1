@@ -10,6 +10,7 @@ TagManager:
   - OniBullet
   - EnemyBullet
   - Barrier
+  - Item
   layers:
   - Default
   - TransparentFX

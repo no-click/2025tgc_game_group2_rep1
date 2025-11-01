@@ -11,6 +11,7 @@ public class Player3 : MonoBehaviour
     [SerializeField, Header("加速時のスピード倍率")]
     public float speedMultiplier = 3f;
     public GameObject bullet;//弾のプレハブ
+    public GameObject item;//弾のプレハブ
     public string gameOverSceneName = "GameOver";//ゲームオーバーになった際に移るシーン
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -83,7 +84,13 @@ public class Player3 : MonoBehaviour
 
     void Update()
     {
-
+        int rand = Random.Range(0, 1000);
+        if(item != null && rand == 0)
+        {
+            float ranx = Random.Range(-8.0f, 8.0f);
+            float rany = Random.Range(-4.0f, 4.0f);
+            GameObject newAx1 = Instantiate(item, new Vector3(ranx, rany, 0.0f), Quaternion.identity);
+        }
         if (Time.time >= nextFireTime)
         {
             GameObject closestEnemy = FindClosestEnemy();
@@ -212,6 +219,10 @@ public class Player3 : MonoBehaviour
                     SceneManager.LoadScene(gameOverSceneName);
                 }
             }
+        }else if (other.CompareTag("Item"))
+        {
+            hp++;
+
         }
     }
 

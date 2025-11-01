@@ -3812,6 +3812,7 @@ MonoBehaviour:
   speed: 5
   speedMultiplier: 3
   bullet: {fileID: 1037840134596667299, guid: 4f7b003c1752f6b45ac78c977f001299, type: 3}
+  item: {fileID: 1276747480577523853, guid: bf8a70a0d03beeb43bf065d60bd533b6, type: 3}
   gameOverSceneName: GameOverAkazukin
   hp: 10
   fireRate: 0.1
