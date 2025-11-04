@@ -42,10 +42,12 @@ public class Bullet3 : MonoBehaviour
                 ScoreManager.instance.AddScore(calculatedScore);
             }
             Destroy(gameObject);
-        }else if (other.CompareTag("Wall"))
-        {
-            Destroy(gameObject);
         }
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 
 }

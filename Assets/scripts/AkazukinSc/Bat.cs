@@ -57,7 +57,8 @@ public class Bat : MonoBehaviour
 
             // オブジェクトの新しい位置を設定
             transform.position = newPosition;
-        }
+        }  
+        if (transform.position.y > 2) return;
         if(Time.time >= nextFireRate)
         {
             Shoot(playerObject);

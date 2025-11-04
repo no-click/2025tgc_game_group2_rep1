@@ -116,7 +116,7 @@ public class Witch : MonoBehaviour
         {
             float ran = Random.Range(180.0f, 360f);
             GameObject newAx = Instantiate(Ax, transform.position, Quaternion.identity);
-            Ax AxScript = newAx.GetComponent<Ax>();
+            Ax_2 AxScript = newAx.GetComponent<Ax_2>();
             if (AxScript != null)
             {
                 AxScript.SetInitialAngle(ran);

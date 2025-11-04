@@ -41,10 +41,16 @@ public class EnemyBullet3Ex : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Wall"))
+        if (other.CompareTag("Player"))
         {
             if (timer < 1f) return;
             Destroy(gameObject);
         }
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 }

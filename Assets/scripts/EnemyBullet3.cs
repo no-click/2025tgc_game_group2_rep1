@@ -22,7 +22,7 @@ public class EnemyBullet3 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Wall"))
+        if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
@@ -34,6 +34,11 @@ public class EnemyBullet3 : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 
 }

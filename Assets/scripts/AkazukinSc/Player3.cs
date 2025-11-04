@@ -11,7 +11,7 @@ public class Player3 : MonoBehaviour
     [SerializeField, Header("加速時のスピード倍率")]
     public float speedMultiplier = 3f;
     public GameObject bullet;//弾のプレハブ
-    public GameObject item;//弾のプレハブ
+    public GameObject item;
     public string gameOverSceneName = "GameOver";//ゲームオーバーになった際に移るシーン
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -87,9 +87,11 @@ public class Player3 : MonoBehaviour
         int rand = Random.Range(0, 1000);
         if(item != null && rand == 0)
         {
+            GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+            if (items.Length > 0) return;
             float ranx = Random.Range(-8.0f, 8.0f);
             float rany = Random.Range(-4.0f, 4.0f);
-            GameObject newAx1 = Instantiate(item, new Vector3(ranx, rany, 0.0f), Quaternion.identity);
+            GameObject newItem = Instantiate(item, new Vector3(ranx, rany, 0.0f), Quaternion.identity);
         }
         if (Time.time >= nextFireTime)
         {
@@ -222,7 +224,7 @@ public class Player3 : MonoBehaviour
         }else if (other.CompareTag("Item"))
         {
             hp++;
-
+            if(hp > 10) hp = 10;
         }
     }
 

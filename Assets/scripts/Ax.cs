@@ -88,10 +88,16 @@ public class Ax : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Wall"))
+        if (other.CompareTag("Player"))
         {
             //if (other.gameObject.GetComponent<Player3>().IsDamage()) return;
             Destroy(gameObject);
         }
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 }

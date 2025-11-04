@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public GameObject bullet;
@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public int hp = 0;
     public float fireRate = 1.0f;
     private float nextFireTime;
+    [SerializeField, Header("îÌÉ_ÉÅéûÇÃSE")]
+    public AudioClip damageSE;
 
     void Awake()
     {
@@ -51,11 +53,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int GetHP(){
+        return hp;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") || other.CompareTag("OniBullet"))
         {
             hp--;
+            CameraShaker.instance.Shake(0.3f, 0.1f);
+            SoundPlayer.instance.PlaySE(damageSE);
             if (hp <= 0)
             {
                 SceneManager.LoadScene(gameOverSceneName);

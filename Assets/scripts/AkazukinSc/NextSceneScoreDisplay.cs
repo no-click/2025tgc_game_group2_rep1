@@ -11,33 +11,25 @@ public class NextSceneScoreDisplay : MonoBehaviour
         if (ScoreManager.instance != null)
         {
             int carriedScore = ScoreManager.instance.GetTotalScore();
-            if (carriedScore > 70000000)
+            if (carriedScore > 100000000 && carriedScore % 10 == 0)
             {
-                if (carriedScore % 10 == 0)
-                {
-                    result = "SS";
-
-                }
-                else
-                {
-                    result = "S";
-                }
+                result = "SS";
             }
-            else if (carriedScore > 60000000)
+            else if (carriedScore > 90000000)
+            {
+                result = "S";
+            }
+            else if (carriedScore > 80000000)
             {
                 result = "A";
             }
-            else if (carriedScore > 50000000)
+            else if (carriedScore > 70000000)
             {
                 result = "B";
             }
-            else if (carriedScore > 40000000)
-            {
-                result = "C";
-            }
             else
             {
-                result = "D";
+                result = "C";
             }
             if (nextSceneScoreText != null)
             {
