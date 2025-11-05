@@ -5,15 +5,18 @@ public class NextSceneScoreDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nextSceneScoreText;
     private string result = "";
+    public VideoController VideoController;
 
     void Start()
     {
+        VideoController = FindAnyObjectByType<VideoController>();
         if (ScoreManager.instance != null)
         {
             int carriedScore = ScoreManager.instance.GetTotalScore();
             if (carriedScore > 100000000 && carriedScore % 10 == 0)
             {
                 result = "SS";
+                VideoController.PlayVideo();
             }
             else if (carriedScore > 90000000)
             {
@@ -35,6 +38,9 @@ public class NextSceneScoreDisplay : MonoBehaviour
             {
                 nextSceneScoreText.text = "SCORE: " + carriedScore.ToString("D8") + "\nRANK : " + result;
             }
+        }else
+        {
+            VideoController.PlayVideo();
         }
     }
 }

@@ -85,7 +85,7 @@ public class Player3 : MonoBehaviour
     void Update()
     {
         int rand = Random.Range(0, 1000);
-        if(item != null && rand == 0)
+        if(hp < 10 && item != null && rand == 0)
         {
             GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
             if (items.Length > 0) return;
