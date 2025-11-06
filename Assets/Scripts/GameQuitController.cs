@@ -1,14 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameQuitController : MonoBehaviour
 {
+    [SerializeField, Header("ゲームを終了するか")]
+    public bool IsEnd = false;
+
     void Update()
     {
         // Escキーが押されたかチェックする
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // ゲームを終了するメソッドを呼び出す
-            QuitGame();
+            if (IsEnd)
+            {
+                QuitGame();
+
+            }
+            else
+            {
+                SceneManager.LoadScene("Title");
+            }
         }
     }
 
