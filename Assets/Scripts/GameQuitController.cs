@@ -19,6 +19,8 @@ public class GameQuitController : MonoBehaviour
             else
             {
                 SceneManager.LoadScene("Title");
+                Time.timeScale = 1.0f;
+                if (ScoreManager.instance != null) ScoreManager.ResetAndDestroy();
             }
         }
     }

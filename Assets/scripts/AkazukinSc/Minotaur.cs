@@ -96,13 +96,14 @@ public class Minotaur : MonoBehaviour
         GameObject otherBullet = GameObject.FindGameObjectWithTag("EnemyBullet");
         if (otherBullet == null && Time.time >= nextFireTime)
         {
-            int ran = Random.Range(0, 2);
+            int ran = Random.Range(0, 4);
             if (ran == 0) 
             {
-                Shoot();
-            }else
-            {
                 Shoot8Directions();
+            }
+            else
+            {
+                Shoot();
             }
             nextFireTime = Time.time + fireRate;
         }
