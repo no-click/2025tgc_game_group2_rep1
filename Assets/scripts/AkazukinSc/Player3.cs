@@ -31,7 +31,7 @@ public class Player3 : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float damageTimeCount;
     private bool dDamage;
-    //敵との距離に応じて弾の数を変えるための変数
+    public bool isDamaged = false;
     public float maxPowDistance = 8f; // 弾が3発になる距離
     //プレイヤーから少し離れた位置に弾を生成するための変数
     public float bulletSpawnOffset = 1.0f; // 弾の発射位置のオフセット
@@ -214,6 +214,7 @@ public class Player3 : MonoBehaviour
             {
                 hp--;
                 dDamage = true;
+                isDamaged = true;
                 CameraShaker.instance.Shake(0.3f, 0.1f);
                 SoundPlayer.instance.PlaySE(damageSE);
                 if (hp <= 0)
@@ -237,6 +238,8 @@ public class Player3 : MonoBehaviour
     {
         return dDamage;
     }
+
+
 
     public void Clear()
     {

@@ -40,6 +40,14 @@ public class Bullet3 : MonoBehaviour
                 int baseScore = (playerCurrentHP * HP_SCORE_MULTIPLIER);
                 int calculatedScore = baseScore * bonusMultiplier;
                 ScoreManager.instance.AddScore(calculatedScore);
+                if (player.isDamaged)
+                {
+                    int currentScore = ScoreManager.instance.GetTotalScore();
+                    if (currentScore % 10 == 0)
+                    {
+                        ScoreManager.instance.AddScore(1);
+                    }
+                }
             }
             Destroy(gameObject);
         }
